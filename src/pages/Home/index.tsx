@@ -22,30 +22,30 @@ export default function Home({ }: Props) {
                 <div className="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                     <ul className="navbar-nav ms-auto navbar-nav-scroll">
                         <li className="nav-item">
-                            <a className="a nav-link active" aria-current="page" href="#header">Home</a>
+                            <a className="a nav-link active" aria-current="page" href="#header">Inicio</a>
                         </li>
                         <li className="nav-item">
-                            <a className="a nav-link" href="#services">Services</a>
+                            <a className="a nav-link" href="#projects">Proyectos</a>
                         </li>
                         <li className="nav-item">
-                            <a className="a nav-link" href="#projects">Projects</a>
+                            <a className="a nav-link" href="#pricing">Cómo invertir</a>
                         </li>
                         <li className="nav-item">
-                            <a className="a nav-link" href="#pricing">Pricing</a>
+                            <a className="a nav-link" href="#contact">Contacto</a>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="a nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Drop</a>
+                            <a className="a nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Conocé Más</a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown01">
-                                <li><a className="a dropdown-item" href="article.html">Article Details</a></li>
+                                <li><a className="a dropdown-item" href="article.html">Entrevistas</a></li>
                                 <li><div className="dropdown-divider"></div></li>
-                                <li><a className="a dropdown-item" href="terms.html">Terms Conditions</a></li>
+                                <li><a className="a dropdown-item" href="terms.html">Quiénes Somos</a></li>
                                 <li><div className="dropdown-divider"></div></li>
-                                <li><a className="a dropdown-item" href="privacy.html">Privacy Policy</a></li>
+                                <li><a className="a dropdown-item" href="privacy.html">Política de Privacidad</a></li>
                             </ul>
                         </li>
                     </ul>
                     <span className="nav-item">
-                        <a className="a btn-solid-sm" href="#contact">Get quote</a>
+                        <a className="a btn-solid-sm" href="#pricing">Invierte ahora</a>
                     </span>
                 </div>
             </div>
@@ -57,11 +57,11 @@ export default function Home({ }: Props) {
                 <div className="row">
                     <div className="col-lg-6 col-xl-5">
                         <div className="text-container">
-                            <div className="section-title">Lorem ipsum dolor sit amet</div>
-                            <h1 className="h1 h1-large">Consectetur adipisg elit sed do eiusm</h1>
-                            <p className="p p-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices sollicitudin</p>
-                            <a className="a btn-solid-lg" href="#services">Offered services</a>
-                            <a className="a quote" href="#contact"><i className="fas fa-paper-plane"></i>Get quote</a>
+                            {/* <div className="section-title">Lorem ipsum dolor sit amet</div> */}
+                            <h1 className="h1 h1-large">Invierte inteligentemente</h1>
+                            <p className="p p-large">La mejor opción para invertir en en tu próxima propiedad. Nos especializamos en ofrecer oportunidades de inversión rentables y seguras en propiedades inmobiliarias de alta calidad.</p>
+                            <a className="a btn-solid-lg" href="#services">Comienza gratis</a>
+                            <a className="a quote" href="#pricing"><i className="fas fa-paper-plane"></i>Invierte ahora</a>
                         </div>
                     </div>
                     <div className="col-lg-6 col-xl-7">
@@ -87,7 +87,7 @@ export default function Home({ }: Props) {
                             <h2><span>Maecenas fringil</span><br /> quam posu pele est</h2>
                             <p>Maecenas fringilla quam posuere, pellentesque est nec, gravida turpis. Integer vitae mollis felis. Integer id quam id tellus hendrerit laciniad binfer</p>
                             <p>Sed id dui rutrum, dictum urna eu, accumsan turpis. Fusce id auctor velit, sed viverra dui rem dina</p>
-                            <a className="a btn-solid-reg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modal</a>
+                            <a className="a btn-solid-reg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -132,8 +132,8 @@ export default function Home({ }: Props) {
                                     <div className="flex-grow-1">Id ultricies fringilla fangor raq trinit</div>
                                 </li>
                             </ul>
-                            <a id="modalCtaBtn" className="btn-solid-reg" href="#">Details</a>
-                            <button type="button" className="btn-outline-reg" data-bs-dismiss="modal">Close</button>
+                            <a id="modalCtaBtn" className="btn-solid-reg" href="#">Comienza ahora</a>
+                            <button type="button" className="btn-outline-reg" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
@@ -365,7 +365,7 @@ export default function Home({ }: Props) {
                                     <li>Ut convallis aliquama set</li>
                                 </ul>
                                 <div className="price">$200</div>
-                                <a href="#contact" className="btn-outline-reg">Get quote</a>
+                                <a href="#pricing" className="btn-outline-reg">Invierte ahora</a>
                             </div>
                         </div>
 
@@ -384,7 +384,7 @@ export default function Home({ }: Props) {
                                     <li>Mauris non luctus est</li>
                                 </ul>
                                 <div className="price">$300</div>
-                                <a href="#contact" className="btn-outline-reg">Get quote</a>
+                                <a href="#pricing" className="btn-outline-reg">Invierte ahora</a>
                             </div>
                         </div>
 
@@ -403,7 +403,7 @@ export default function Home({ }: Props) {
                                     <li>Id tellus hendrerit lacinia</li>
                                 </ul>
                                 <div className="price">$400</div>
-                                <a href="#contact" className="btn-outline-reg">Get quote</a>
+                                <a href="#pricing" className="btn-outline-reg">Invierte ahora</a>
                             </div>
                         </div>
 
@@ -460,7 +460,7 @@ export default function Home({ }: Props) {
                                 <textarea className="form-control-textarea" placeholder="Message" required></textarea>
                             </div>
                             <div className="form-group">
-                                <button type="submit" className="form-control-submit-button">Submit</button>
+                                <button type="submit" className="form-control-submit-button">Enviar</button>
                             </div>
                         </form>
 
@@ -475,7 +475,7 @@ export default function Home({ }: Props) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <h4>Pellentesque aliquet mi eu tortor dictum, non imperdiet ante viverra. Phasellus eget enim orci ut pellentes troc</h4>
+                        <h4>Conocé más a través de nuestros canales de comunicación. Nos podes encontrar en:</h4>
                         <div className="social-container">
                             <span className="fa-stack">
                                 <a href="#your-link">
@@ -492,7 +492,7 @@ export default function Home({ }: Props) {
                             <span className="fa-stack">
                                 <a href="#your-link">
                                     <i className="fas fa-circle fa-stack-2x"></i>
-                                    <i className="fab fa-pinterest-p fa-stack-1x"></i>
+                                    <i className="fab fa-linkedin fa-stack-1x"></i>
                                 </a>
                             </span>
                             <span className="fa-stack">
@@ -518,9 +518,9 @@ export default function Home({ }: Props) {
                 <div className="row">
                     <div className="col-lg-6">
                         <ul className="list-unstyled li-space-lg p-small">
-                            <li><a href="article.html">Article Details</a></li>
-                            <li><a href="terms.html">Terms & Conditions</a></li>
-                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="article.html">Entrevistas</a></li>
+                            <li><a href="terms.html">Quiénes Somos</a></li>
+                            <li><a href="privacy.html">Política de Privacidad</a></li>
                         </ul>
                     </div>
                     <div className="col-lg-6">
