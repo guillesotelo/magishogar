@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import './App.css';
 
 const App: React.FC = () => {
@@ -8,6 +9,9 @@ const App: React.FC = () => {
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route path='/login'>
+        <Login />
       </Route>
       <Route>
         <Home />

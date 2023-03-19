@@ -1,0 +1,43 @@
+.login__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8vw;
+}
+
+.login__text-box {
+    margin: .3vw 1vw;
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.login__box {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    box-shadow: 5px 5px 13px lightgray;
+    border-radius: 1vw;
+    align-self: center;
+    gap: 1vw;
+    padding: 2vw 1vw;
+}
+
+.input__magis {
+    margin: 0 1vw;
+    padding: .5vw 1vw;
+    border-radius: 1vw;
+    background-color: #ffeedd;
+}
+
+.button__magis {
+    margin: .5vw 1vw 0 1vw;
+    background-color: #E87C0C;
+    border-radius: 1vw;
+    padding: 1vw;
+    transition: .3s;
+}
+
+.button__magis:hover {
+    filter: brightness(120%);
+    transition: .3s;
+}

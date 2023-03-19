@@ -1,8 +1,40 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 require('./js/scripts.js')
 type Props = {}
 
 export default function Home({ }: Props) {
+    const history = useHistory()
+
+    useLayoutEffect(() => {
+        startCounters()
+    })
+
+    const startCounters = () => {
+        const targetDiv = document.querySelector('.counter-cell');
+
+        window.addEventListener('scroll', () => {
+            const viewportHeight = window.innerHeight;
+            if (targetDiv) {
+                const targetDivRect = targetDiv.getBoundingClientRect();
+                const targetDivTop = targetDivRect.top;
+                const targetDivBottom = targetDivRect.bottom;
+
+                if (targetDivTop < viewportHeight && targetDivBottom >= 0) {
+                    const precounter1 = document.getElementById('precounter1')
+                    const precounter2 = document.getElementById('precounter2')
+
+                    if (precounter1) setInterval(() => {
+                        if (Number(precounter1.innerText) < 433) precounter1.innerText = `${Number(precounter1.innerText) + 1}`
+                    }, 8)
+                    if (precounter2) setInterval(() => {
+                        if (Number(precounter2.innerText) < 720) precounter2.innerText = `${Number(precounter2.innerText) + 1}`
+                    }, 8)
+                }
+
+            }
+        });
+    }
 
     const topFunction = () => {
         document.body.scrollTop = 0; // for Safari
@@ -34,7 +66,7 @@ export default function Home({ }: Props) {
                             <a className="a nav-link" href="#contact">Contacto</a>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="a nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Conocé Más</a>
+                            <a className="a nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Más</a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown01">
                                 <li><a className="a dropdown-item" href="article.html">Entrevistas</a></li>
                                 <li><div className="dropdown-divider"></div></li>
@@ -60,7 +92,7 @@ export default function Home({ }: Props) {
                             {/* <div className="section-title">Lorem ipsum dolor sit amet</div> */}
                             <h1 className="h1 h1-large">Invierte inteligentemente</h1>
                             <p className="p p-large">La mejor opción para invertir en en tu próxima propiedad. Nos especializamos en ofrecer oportunidades de inversión rentables y seguras en propiedades inmobiliarias de alta calidad.</p>
-                            <a className="a btn-solid-lg" href="#services">Comienza gratis</a>
+                            <a className="a btn-solid-lg" href='' onClick={() => history.push('/login')}>Comienza Gratis</a>
                             <a className="a quote" href="#pricing"><i className="fas fa-paper-plane"></i>Invierte ahora</a>
                         </div>
                     </div>
@@ -84,9 +116,10 @@ export default function Home({ }: Props) {
                     </div>
                     <div className="col-lg-6 col-xl-5">
                         <div className="text-container">
-                            <h2><span>Maecenas fringil</span><br /> quam posu pele est</h2>
-                            <p>Maecenas fringilla quam posuere, pellentesque est nec, gravida turpis. Integer vitae mollis felis. Integer id quam id tellus hendrerit laciniad binfer</p>
-                            <p>Sed id dui rutrum, dictum urna eu, accumsan turpis. Fusce id auctor velit, sed viverra dui rem dina</p>
+                            <h2><b>¿Buscas una inversión segura y rentable?</b></h2>
+                            <p>
+                                Invertir en bienes raíces con MagisHogar es una decisión inteligente que te ayudará a construir tu patrimonio a largo plazo. Nuestro equipo de expertos en el mercado inmobiliario te guiará en todo el proceso para que puedas tomar la mejor decisión de inversión.
+                            </p>
                             <a className="a btn-solid-reg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver más</a>
                         </div>
                     </div>
@@ -145,17 +178,17 @@ export default function Home({ }: Props) {
                 <div className="row">
                     <div className="col-lg-6 col-xl-5">
                         <div className="text-container">
-                            <h2><span>Vitae tincidu reno</span><br /> imperdi ant pelle ali</h2>
-                            <p>In gravida vitae nulla vitae tincidunt imperdiet ante. Pellentesque aliquet mi eu tortor dictum, non imperdiet ante viverra. Phasellus eget enim orci flig rine bilo</p>
+                            <h2><b>Nuestra Trayectoria</b></h2>
+                            <p>En MagisHogar nos enorgullece el impacto que hemos tenido en el mercado inmobiliario, y la cantidad de usuarios que utilizan nuestros servicios para buscar propiedades de alta calidad y para invertir en el mercado. Nuestro compromiso con la excelencia y la satisfacción del cliente es lo que nos ha permitido crecer y convertirnos en una empresa líder en el mercado.</p>
 
                             <div className="counter-container">
                                 <div className="counter-cell">
-                                    <div data-purecounter-start="0" data-purecounter-end="1250" data-purecounter-duration="2" className="purecounter">1</div>
-                                    <div className="counter-info">Happy Customers</div>
+                                    <div data-purecounter-start="0" data-purecounter-end="1250" data-purecounter-duration="2" id='precounter1' className="purecounter">0</div>
+                                    <div className="counter-info">Clientes satisfechos</div>
                                 </div>
                                 <div className="counter-cell red">
-                                    <div data-purecounter-start="0" data-purecounter-end="1380" data-purecounter-duration="2" className="purecounter">1</div>
-                                    <div className="counter-info">Issues Solved</div>
+                                    <div data-purecounter-start="0" data-purecounter-end="1380" data-purecounter-duration="2" id='precounter2' className="purecounter">0</div>
+                                    <div className="counter-info">Inversiones realizadas</div>
                                 </div>
                             </div>
 
@@ -174,71 +207,65 @@ export default function Home({ }: Props) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <h2 className="h2-heading">Tidunt leo eu laoreedt inter</h2>
+                        <h2 className="h2-heading"><b>Nuestros Proyectos</b></h2>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-lg-12">
 
-                        <div className="button-group filters-button-group">
-                            <button className="button is-checked" data-filter="*">ALL</button>
-                            <button className="button" data-filter=".design">DESIGN</button>
-                            <button className="button" data-filter=".development">DEVELOPMENT</button>
-                            <button className="button" data-filter=".marketing">MARKETING</button>
-                        </div>
                         <div className="grid">
-                            <div className="element-item development">
+                            <div className="element-item development" >
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-1.jpg" alt="alternative" />
-                                    <p><strong>Online banking</strong> - pellentesque tincidunt leo eu laoreedt integer quis vanos compren</p>
+                                    <img className="img-fluid" src="images/prop9.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p >Hermosa casa de campo de 3 habitaciones con vistas panorámicas en una zona tranquila</p>
                                 </a>
                             </div>
                             <div className="element-item development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-2.jpg" alt="alternative" />
-                                    <p><strong>Loans company</strong> - odio semper, interdum orci molestie, mattis lectus pellentesq aliqu</p>
+                                    <img className="img-fluid" src="images/prop1.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Terreno amplio y cercado de 1000m² listo para construir su hogar ideal</p>
                                 </a>
                             </div>
                             <div className="element-item development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-3.jpg" alt="alternative" />
-                                    <p><strong>Refinance firm</strong> - arcu a neque congue finibus doneci malesuada et purus melan bris</p>
+                                    <img className="img-fluid" src="images/prop2.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Moderno apartamento de 2 habitaciones con balcón privado en el centro de la ciudad</p>
                                 </a>
                             </div>
                             <div className="element-item design development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-4.jpg" alt="alternative" />
-                                    <p><strong>Financial products</strong> - id aliquam ut malesuada eros utr varius blandit aliquam tinci bist</p>
+                                    <img className="img-fluid" src="images/prop3.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Propiedad comercial con excelente exposición y alto flujo vehicular</p>
                                 </a>
                             </div>
                             <div className="element-item design development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-5.jpg" alt="alternative" />
-                                    <p><strong>Credit cards</strong> - magna a feugiat cras a semper tellus in rhoncus vehicula tellus rugo</p>
+                                    <img className="img-fluid" src="images/prop4.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Casa contemporánea de lujo con piscina privada y jardín exuberante</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-6.jpg" alt="alternative" />
-                                    <p><strong>Software robots</strong> - vel sodales dolor donec a est sapien integer pharetr bilom conva</p>
+                                    <img className="img-fluid" src="images/prop5.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Acogedor apartamento tipo estudio en una zona residencial exclusiva con amenidades de lujo</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-7.jpg" alt="alternative" />
-                                    <p><strong>Company control</strong> - ut quam aliquam elemo de vestibulum fringilla porttitor vanic tres</p>
+                                    <img className="img-fluid" src="images/prop6.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Terreno frente al mar con acceso privado a la playa y vistas impresionantes</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-8.jpg" alt="alternative" />
-                                    <p><strong>Audit reports</strong> - sed tempor, metus vel pharetra finibus, est ante hendrerit augue</p>
+                                    <img className="img-fluid" src="images/prop7.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Casa histórica restaurada con detalles originales y comodidades modernas</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/project-9.jpg" alt="alternative" />
-                                    <p><strong>Big business</strong> - aliquam semper molestie nisi, at porttitor lacus suscipit in mole richter</p>
+                                    <img className="img-fluid" src="images/prop8.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <p>Apartamento de diseño con vistas a la ciudad y acceso a una amplia gama de comodidades</p>
                                 </a>
                             </div>
                         </div>
@@ -262,12 +289,12 @@ export default function Home({ }: Props) {
                                         <div className="card">
                                             <img className="quotes" src="images/quotes.svg" alt="alternative" />
                                             <div className="card-body">
-                                                <p className="p testimonial-text">Fusce tincidunt dui nec diam varius venenatis. Nullam tristique rutrum odio, ut tincidunt erat dictum in. Etiam et aliquet mi, et vehicula elit fusce porta ullamcorper</p>
+                                                <p className="p testimonial-text">La atención personalizada y el servicio de calidad que recibí de MagisHogar fue excepcional. Me ayudaron a encontrar la propiedad perfecta para mi familia, y se aseguraron de que todo el proceso fuera fácil y sin estrés. ¡Gracias MagisHogar por hacer realidad el sueño de tener nuestra casa propia!</p>
                                                 <div className="details">
                                                     <img className="testimonial-image" src="images/testimonial-1.jpg" alt="alternative" />
                                                     <div className="text">
-                                                        <div className="testimonial-author">Lorem Ipsum</div>
-                                                        <div className="occupation">Job Title - Name</div>
+                                                        <div className="testimonial-author">Lorena Alterman</div>
+                                                        <div className="occupation">Buenos Aires</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -294,12 +321,12 @@ export default function Home({ }: Props) {
                                         <div className="card">
                                             <img className="quotes" src="images/quotes.svg" alt="alternative" />
                                             <div className="card-body">
-                                                <p className="p testimonial-text">Nam sit amet eleifend justo. Aliquam sit amet lacinia enim, eget facilisis ex. Ut pretium cursus eleifend. Integer feugiat malesuada quam vel basil venis proca jilo</p>
+                                                <p className="p testimonial-text">La innovación y la tecnología de MagisHogar hacen que sea fácil y cómodo buscar propiedades de alta calidad en el mercado inmobiliario. He invertido en varias propiedades con MagisHogar y siempre he recibido un excelente retorno de mi inversión. ¡Sin duda seguiré confiando en MagisHogar para mis futuras inversiones en bienes raíces!</p>
                                                 <div className="details">
                                                     <img className="testimonial-image" src="images/testimonial-3.jpg" alt="alternative" />
                                                     <div className="text">
-                                                        <div className="testimonial-author">Lorem Ipsum</div>
-                                                        <div className="occupation">Job Title - Name</div>
+                                                        <div className="testimonial-author">Pedro Tolosa</div>
+                                                        <div className="occupation">Santa Fe</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -310,12 +337,12 @@ export default function Home({ }: Props) {
                                         <div className="card">
                                             <img className="quotes" src="images/quotes.svg" alt="alternative" />
                                             <div className="card-body">
-                                                <p className="p testimonial-text">Lorem ipsum dolor sit amet, consectetur ing elit. Nulla id nisl tempus risus facilisis efficr ut tincidunt vitae enim non vehicula. Phases vitae metus in felis gravida ultrices zimbo</p>
+                                                <p className="p testimonial-text">El equipo de MagisHogar es excepcional en su conocimiento del mercado inmobiliario. Me ayudaron a encontrar la propiedad ideal para mi cartera de inversión, y siempre estuvieron disponibles para responder cualquier pregunta que tuviera. Estoy muy satisfecho con mi experiencia con MagisHogar y sin duda los recomendaré a cualquier persona que busque invertir en bienes raíces.</p>
                                                 <div className="details">
                                                     <img className="testimonial-image" src="images/testimonial-4.jpg" alt="alternative" />
                                                     <div className="text">
-                                                        <div className="testimonial-author">Lorem Ipsum</div>
-                                                        <div className="occupation">Job Title - Name</div>
+                                                        <div className="testimonial-author">Carlos Araya</div>
+                                                        <div className="occupation">Montevideo</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -343,7 +370,7 @@ export default function Home({ }: Props) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <h2 className="h2-heading"><span>Alim mada bib arcu</span><br /> vitae elemem sisse ultrices</h2>
+                        <h2 className="h2-heading"><b>Inversiones Recomendadas</b></h2>
                     </div>
                 </div>
                 <div className="row">
@@ -353,16 +380,10 @@ export default function Home({ }: Props) {
                         <div className="card">
                             <div className="card-body">
                                 <div className="card-title">
-                                    <img className="decoration-lines" src="images/decoration-lines.svg" alt="alternative" /><span>Landing page</span><img className="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative" />
+                                    <img className="decoration-lines" src="images/decoration-lines.svg" alt="alternative" /><span>1m2</span><img className="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative" />
                                 </div>
                                 <ul className="list-unstyled li-space-lg">
-                                    <li>Fusce pulvinar eu mi acm</li>
-                                    <li>Curabitur consequat nisl bro</li>
-                                    <li>Reget facilisis molestie</li>
-                                    <li>Vivamus vitae sem in tortor</li>
-                                    <li>Pharetra vehicula ornares</li>
-                                    <li>Vivamus dignissim sit amet</li>
-                                    <li>Ut convallis aliquama set</li>
+                                    <p>Casa de campo rústica en una zona boscosa de 1 hectárea con vistas panorámicas, fuente de agua natural y acceso a senderos naturales.</p>
                                 </ul>
                                 <div className="price">$200</div>
                                 <a href="#pricing" className="btn-outline-reg">Invierte ahora</a>
@@ -372,18 +393,12 @@ export default function Home({ }: Props) {
                         <div className="card">
                             <div className="card-body">
                                 <div className="card-title">
-                                    <img className="decoration-lines" src="images/decoration-lines.svg" alt="alternative" /><span>Corporate site</span><img className="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative" />
+                                    <img className="decoration-lines" src="images/decoration-lines.svg" alt="alternative" /><span>10m2</span><img className="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative" />
                                 </div>
                                 <ul className="list-unstyled li-space-lg">
-                                    <li>Nunc commodo magna quis</li>
-                                    <li>Lacus fermentum tincidunt</li>
-                                    <li>Nullam lobortis porta diam</li>
-                                    <li>Announcing of invita mro</li>
-                                    <li>Dictum metus placerat luctus</li>
-                                    <li>Sed laoreet blandit mollis</li>
-                                    <li>Mauris non luctus est</li>
+                                    <p>Casa de dos pisos con 3 dormitorios, garaje para dos autos, patio y amplia sala de estar en una zona tranquila y segura.</p>
                                 </ul>
-                                <div className="price">$300</div>
+                                <div className="price">$1800</div>
                                 <a href="#pricing" className="btn-outline-reg">Invierte ahora</a>
                             </div>
                         </div>
@@ -391,18 +406,12 @@ export default function Home({ }: Props) {
                         <div className="card">
                             <div className="card-body">
                                 <div className="card-title">
-                                    <img className="decoration-lines" src="images/decoration-lines.svg" alt="alternative" /><span>Online shop</span><img className="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative" />
+                                    <img className="decoration-lines" src="images/decoration-lines.svg" alt="alternative" /><span>50m2</span><img className="decoration-lines flipped" src="images/decoration-lines.svg" alt="alternative" />
                                 </div>
                                 <ul className="list-unstyled li-space-lg">
-                                    <li>Quisque rutrum mattis</li>
-                                    <li>Quisque tristique cursus lacus</li>
-                                    <li>Interdum sollicitudin maec</li>
-                                    <li>Quam posuere, pellentesque</li>
-                                    <li>Est nec, gravida turpis integer</li>
-                                    <li>Mollis felis. Integer id quam</li>
-                                    <li>Id tellus hendrerit lacinia</li>
+                                    <p>Apartamento amueblado de 2 habitaciones en un edificio moderno con piscina, gimnasio y seguridad las 24 horas del día.</p>
                                 </ul>
-                                <div className="price">$400</div>
+                                <div className="price">$8000</div>
                                 <a href="#pricing" className="btn-outline-reg">Invierte ahora</a>
                             </div>
                         </div>
@@ -418,8 +427,7 @@ export default function Home({ }: Props) {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="text-container">
-                            <h4>In gravida at nunc sodales pretium. Vivamus semper, odio vitae mattis auctor, elit elit semper magna rico</h4>
-                            <p className="p p-large">Ac tristique velit sapien vitae eros. Praesent ut erat a tellus cursus pharetra finibus posuere nisi. Vivamus feugiat tincidunt sem pre toro</p>
+                            <p className="p p-large">Invertir en bienes raíces es una excelente forma de diversificar tu portafolio y asegurar un ingreso pasivo a largo plazo. Con MagisHogar, puedes invertir en propiedades de alta calidad y recibir un retorno sobre tu inversión que te permitirá alcanzar tus objetivos financieros. ¡No esperes más para invertir en tu futuro con MagisHogar!</p>
                         </div>
                     </div>
                 </div>
@@ -430,12 +438,11 @@ export default function Home({ }: Props) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <h2 className="h2-heading"><span>Dictum fusce ut placerat</span><br /> faucibus turpis in eu mi ultrices</h2>
-                        <p className="p p-heading">Vel malesuada sapien condimentum nec. Fusce interdum nec urna et finibus pulvinar tortor id</p>
+                        <h2 className="h2-heading"><b>Encontranos en</b></h2>
                         <ul className="list-unstyled li-space-lg">
-                            <li><i className="fas fa-map-marker-alt"></i> &nbsp;22 Praesentum, Pharetra Fin, CB 12345, KL</li>
-                            <li><i className="fas fa-phone"></i> &nbsp;<a href="tel:008123456789">+12 345 6789</a></li>
-                            <li><i className="fas fa-envelope"></i> &nbsp;<a href="mailto:lorem@ipsum.com">lorem@ipsum.com</a></li>
+                            <li><i className="fas fa-map-marker-alt"></i> &nbsp;Av. los Rosales 122, Cap. Bermúdez, Santa Fe, Argentina</li>
+                            <li><i className="fas fa-phone"></i> &nbsp;<a href="tel:+541120828559">+54 11 208 28559</a></li>
+                            <li><i className="fas fa-envelope"></i> &nbsp;<a href="mailto:info@magishogar.com">info@magishogar.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -444,16 +451,16 @@ export default function Home({ }: Props) {
 
                         <form>
                             <div className="form-group">
-                                <input type="text" className="form-control-input" placeholder="Name" required />
+                                <input type="text" className="form-control-input" placeholder="Nombre" required />
                             </div>
                             <div className="form-group">
                                 <input type="email" className="form-control-input" placeholder="Email" required />
                             </div>
                             <div className="form-group">
                                 <select className="form-control-select" required>
-                                    <option className="select-option" value="Company Website">Company Website</option>
-                                    <option className="select-option" value="Landing Page">Landing Page</option>
-                                    <option className="select-option" value="Online Shop">Online Shop</option>
+                                    <option className="select-option" value="Company Website">Consulta General</option>
+                                    <option className="select-option" value="Landing Page">Quiero invertir</option>
+                                    <option className="select-option" value="Online Shop">Otro</option>
                                 </select>
                             </div>
                             <div className="form-group">
