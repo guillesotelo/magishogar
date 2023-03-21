@@ -77,7 +77,7 @@ export default function Home({ }: Props) {
                         </li>
                     </ul>
                     <span className="nav-item">
-                        <a className="a btn-solid-sm" href='' onClick={() => history.push('/login')}>Invierte ahora</a>
+                        <a className="a btn-solid-sm" href='' onClick={() => history.push('/register')}>Invierte ahora</a>
                     </span>
                 </div>
             </div>
@@ -92,7 +92,7 @@ export default function Home({ }: Props) {
                             {/* <div className="section-title">Lorem ipsum dolor sit amet</div> */}
                             <h1 className="h1 h1-large">Invierte inteligentemente</h1>
                             <p className="p p-large">La mejor opción para invertir en en tu próxima propiedad. Nos especializamos en ofrecer oportunidades de inversión rentables y seguras en propiedades inmobiliarias de alta calidad.</p>
-                            <a className="a btn-solid-lg" href='' onClick={() => history.push('/login')}>Comienza Gratis</a>
+                            <a className="a btn-solid-lg" href='' onClick={() => history.push('/register')}>Comienza Gratis</a>
                             <a className="a quote" href="#pricing"><i className="fas fa-paper-plane"></i>Invierte ahora</a>
                         </div>
                     </div>
@@ -138,34 +138,31 @@ export default function Home({ }: Props) {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <h3>Lorem Ipsum</h3>
-                            <hr />
-                            <p>In gravida at nunc sodales pretium. Vivamus semper, odio vitae mattis auctor, elit elit semper magna ac tum nico vela spider</p>
-                            <h4>Dolor Sit Amet</h4>
-                            <p>Sapien vitae eros. Praesent ut erat a tellus posuere nisi more thico cursus pharetra finibus posuere nisi. Vivamus feugiat</p>
+                            <h3>Magis Dashboard</h3>
+                            <p>Es una plataforma digital que permite a los clientes invertir en propiedades de forma sencilla y accesible. Proporcionamos oportunidades de inversión en propiedades comerciales y residenciales con un enfoque en activos de alta calidad y rentabilidad. Con MagisHogar, invertir en bienes raíces nunca ha sido tan fácil y accesible.</p>
                             <ul className="list-unstyled li-space-lg">
                                 <li className="d-flex">
                                     <i className="fas fa-chevron-right"></i>
-                                    <div className="flex-grow-1">Tincidunt sem vel brita bet mala</div>
+                                    <div className="flex-grow-1">Oportunidades de inversión en propiedades comerciales y residenciales</div>
                                 </li>
                                 <li className="d-flex">
                                     <i className="fas fa-chevron-right"></i>
-                                    <div className="flex-grow-1">Sapien condimentum sacoz sil necr</div>
+                                    <div className="flex-grow-1">Enfoque en activos de alta calidad y rentabilidad</div>
                                 </li>
                                 <li className="d-flex">
                                     <i className="fas fa-chevron-right"></i>
-                                    <div className="flex-grow-1">Fusce interdum nec ravon fro urna</div>
+                                    <div className="flex-grow-1">Accesible y sencillo proceso de inversión</div>
                                 </li>
                                 <li className="d-flex">
                                     <i className="fas fa-chevron-right"></i>
-                                    <div className="flex-grow-1">Integer pulvinar biolot bat tortor</div>
+                                    <div className="flex-grow-1">Plataforma digital de fácil uso</div>
                                 </li>
                                 <li className="d-flex">
                                     <i className="fas fa-chevron-right"></i>
-                                    <div className="flex-grow-1">Id ultricies fringilla fangor raq trinit</div>
+                                    <div className="flex-grow-1">Soporte y asesoramiento personalizado de nuestro equipo de expertos en bienes raíces</div>
                                 </li>
                             </ul>
-                            <a id="modalCtaBtn" className="btn-solid-reg" href="#">Comienza ahora</a>
+                            <a id="modalCtaBtn" className="btn-solid-reg" href="" onClick={() => history.push('/register')}>Comienza ahora</a>
                             <button type="button" className="btn-outline-reg" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
@@ -540,5 +537,5 @@ export default function Home({ }: Props) {
         <button onClick={topFunction} id="myBtn">
             <img src="images/up-arrow.png" alt="alternative" />
         </button>
-    </div>
+    </div >
 }
