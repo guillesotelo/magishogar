@@ -26,10 +26,10 @@ export default function Home({ }: Props) {
 
                     if (precounter1) setInterval(() => {
                         if (Number(precounter1.innerText) < 433) precounter1.innerText = `${Number(precounter1.innerText) + 1}`
-                    }, 8)
+                    }, 10)
                     if (precounter2) setInterval(() => {
                         if (Number(precounter2.innerText) < 720) precounter2.innerText = `${Number(precounter2.innerText) + 1}`
-                    }, 8)
+                    }, 10)
                 }
 
             }
@@ -77,7 +77,7 @@ export default function Home({ }: Props) {
                         </li>
                     </ul>
                     <span className="nav-item">
-                        <a className="a btn-solid-sm" href="#pricing">Invierte ahora</a>
+                        <a className="a btn-solid-sm" href='' onClick={() => history.push('/login')}>Invierte ahora</a>
                     </span>
                 </div>
             </div>
@@ -216,55 +216,55 @@ export default function Home({ }: Props) {
                         <div className="grid">
                             <div className="element-item development" >
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop9.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop9.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p >Hermosa casa de campo de 3 habitaciones con vistas panorámicas en una zona tranquila</p>
                                 </a>
                             </div>
                             <div className="element-item development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop1.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop1.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Terreno amplio y cercado de 1000m² listo para construir su hogar ideal</p>
                                 </a>
                             </div>
                             <div className="element-item development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop2.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop2.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Moderno apartamento de 2 habitaciones con balcón privado en el centro de la ciudad</p>
                                 </a>
                             </div>
                             <div className="element-item design development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop3.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop3.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Propiedad comercial con excelente exposición y alto flujo vehicular</p>
                                 </a>
                             </div>
                             <div className="element-item design development">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop4.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop4.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Casa contemporánea de lujo con piscina privada y jardín exuberante</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop5.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop5.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Acogedor apartamento tipo estudio en una zona residencial exclusiva con amenidades de lujo</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop6.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop6.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Terreno frente al mar con acceso privado a la playa y vistas impresionantes</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop7.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop7.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Casa histórica restaurada con detalles originales y comodidades modernas</p>
                                 </a>
                             </div>
                             <div className="element-item design marketing">
                                 <a href="article.html">
-                                    <img className="img-fluid" src="images/prop8.jpeg" alt="alternative" style={{ width: '100%' }} />
+                                    <img className="img-fluid prop-image" src="images/prop8.jpeg" alt="alternative" style={{ width: '100%' }} />
                                     <p>Apartamento de diseño con vistas a la ciudad y acceso a una amplia gama de comodidades</p>
                                 </a>
                             </div>

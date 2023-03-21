@@ -799,6 +799,7 @@ select {
 	box-shadow: 3px 3px 13px gray;
 	max-height: 16vw;
 	overflow: hidden;
+	transition: .4s;
 }
 
 .filter .element-item p {
