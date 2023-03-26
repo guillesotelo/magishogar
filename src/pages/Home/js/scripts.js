@@ -145,10 +145,12 @@ document.querySelector('.card-slider')?.addEventListener('click', () => cardSlid
 // When the user scrolls down 20px from the top of the document, show the button
 function scrollFunctionBTT() {
 	const myButton = document.getElementById("myBtn");
-	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-		myButton.style.display = "block";
-	} else {
-		myButton.style.display = "none";
+	if (myButton) {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			myButton.style.display = "block";
+		} else {
+			myButton.style.display = "none";
+		}
 	}
 }
 
